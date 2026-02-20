@@ -1,39 +1,51 @@
 const choices = ["Rock", "Paper", "Scissors"];
 
+function playerWin() {
+    const count = document.querySelector("#playerWinsCount");
+    count.textContent = `${parseInt(count.textContent) + 1}`;
+}
+
+function draw() {
+    const count = document.querySelector("#drawsCount");
+    count.textContent = `${parseInt(count.textContent) + 1}`;
+}
+
+function AIWin() {
+    const count = document.querySelector("#AIWinsCount");
+    count.textContent = `${parseInt(count.textContent) + 1}`;
+}
+
 function selectWinner() {
     const playerSelector = document.querySelector("#playerSelected");
     const AISelector = document.querySelector("#AISelected");
     const output = document.querySelector("#output");
-    const playerWinsCount = document.querySelector("#playerWinsCount");
-    const drawsCount = document.querySelector("#drawsCount");
-    const AIWinsCount = document.querySelector("#AIWinsCount");
 
     if (playerSelector.textContent == AISelector.textContent) {
         output.textContent = `Two ${playerSelector.textContent}: Draw!`;
-        drawsCount.textContent = `${parseInt(drawsCount.textContent) + 1}`;
+        draw();
     } else if (playerSelector.textContent == "Rock") {
         if (AISelector.textContent == "Scissors") {
             output.textContent = "Rock beats Scissors! Player wins!"
-            playerWinsCount.textContent = `${parseInt(playerWinsCount.textContent) + 1}`;
+            playerWin();
         } else {
             output.textContent = "Rock loses to Paper! AI wins!"
-            AIWinsCount.textContent = `${parseInt(AIWinsCount.textContent) + 1}`;
+            AIWin();
         }
     } else if (playerSelector.textContent == "Paper") {
         if (AISelector.textContent == "Rock") {
             output.textContent = "Paper beats Rock! Player wins!"
-            playerWinsCount.textContent = `${parseInt(playerWinsCount.textContent) + 1}`;
+            playerWin();
         } else {
             output.textContent = "Paper loses to Scissors! AI wins!"
-            AIWinsCount.textContent = `${parseInt(AIWinsCount.textContent) + 1}`;
+            AIWin();
         }
     } else if (playerSelector.textContent == "Scissors") {
         if (AISelector.textContent == "Paper") {
             output.textContent = "Scissors beats Paper! Player wins!"
-            playerWinsCount.textContent = `${parseInt(playerWinsCount.textContent) + 1}`;
+            playerWin();
         } else {
             output.textContent = "Scissors loses to Rock! AI wins!"
-            AIWinsCount.textContent = `${parseInt(AIWinsCount.textContent) + 1}`;
+            AIWin();
         }
     } else {
         output.textContent = "Whoops!";
