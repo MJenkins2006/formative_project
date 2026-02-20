@@ -40,20 +40,42 @@ function selectWinner() {
     }
 }
 
-function aiChoice() {
-    const selector = document.querySelector("#AISelected");
-    selector.textContent = choices[Math.floor(Math.random() * 3)];
+function enableButtons() {
+    document.querySelector("#playerRock").disabled = false;
+    document.querySelector("#playerPaper").disabled = false;
+    document.querySelector("#playerScissors").disabled = false;
+}
+
+function disableButtons() {
+    document.querySelector("#playerRock").disabled = true;
+    document.querySelector("#playerPaper").disabled = true;
+    document.querySelector("#playerScissors").disabled = true;
 }
 
 function choiceSelected(event) {
+    disableButtons();
     const selected = document.querySelector(`#player${event.target.textContent}`);
     const selector = document.querySelector("#playerSelected");
-    selector.textContent = selected.textContent;
-    selectWinner();
+    const AISelector = document.querySelector("#AISelected");
+    selector.textContent = "Rock!";
+    AISelector.textContent = "Rock!";
+    setTimeout(() => {
+        selector.textContent = "Paper!";
+        AISelector.textContent = "Paper!";
+    }, 200);
+    setTimeout(() => {
+        selector.textContent = "Scissors!";
+        AISelector.textContent = "Scissors!";
+    }, 400);
+    setTimeout(() => {
+        selector.textContent = selected.textContent;
+        AISelector.textContent = choices[Math.floor(Math.random() * 3)];;
+        selectWinner();
+    }, 600);
+    setTimeout(() => {enableButtons();}, 610);
 }
 
-function playerSelector() {
-    aiChoice();
+function initialiseGame() {
     const rockButton = document.querySelector("#playerRock");
     const paperButton = document.querySelector("#playerPaper");
     const scissorsButton = document.querySelector("#playerScissors");
@@ -61,6 +83,4 @@ function playerSelector() {
     rockButton.addEventListener("click", choiceSelected);
     paperButton.addEventListener("click", choiceSelected);
     scissorsButton.addEventListener("click", choiceSelected);
-
-    setInterval(() => aiChoice(), 200);
 }
