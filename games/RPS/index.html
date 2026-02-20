@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+    <script src="../../index.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="../../style/styles.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<header>Rock Paper Scissors</header>
+
+<body>
+    <section class="dualSection">
+        <p>Player Chosen:</p>
+        <p id="playerSelected"></p>
+        <section id="RPSGrid">
+            <button id="playerRock">Rock</button>
+            <button id="playerPaper">Paper</button>
+            <button id="playerScissors">Scissors</button>
+        </section>
+    </section>
+    <section class="dualSection">
+        <p>AI Chosen:</p>
+        <p id="AISelected"></p>
+    </section>
+    <section class="dualSection">
+        <p>Output:</p>
+        <p id="output"></p>
+    </section>
+    <section class="dualSection">
+        <p>Player Wins:</p>
+        <p id="playerWinsCount">0</p>
+    </section>
+    <section class="dualSection">
+        <p>Draws:</p>
+        <p id="drawsCount">0</p>
+    </section>
+    <section class="dualSection">
+        <p>AI Wins:</p>
+        <p id="AIWinsCount">0</p>
+    </section>
+</body>
+
+<footer>
+    <section id="returner">
+        <script>returnBuilder()</script>
+    </section>
+</footer>
+
+</html>
+
+<script>playerSelector()</script>
