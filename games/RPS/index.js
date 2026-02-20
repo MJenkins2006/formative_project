@@ -36,7 +36,7 @@ function selectWinner() {
     const output = document.querySelector("#output");
 
     if (playerSelector.textContent == AISelector.textContent) {
-        output.textContent = `Two ${playerSelector.textContent}: Draw!`;
+        output.textContent = `Double ${playerSelector.textContent}: Draw!`;
         draw();
     } else if (playerSelector.textContent == "Rock") {
         if (AISelector.textContent == "Scissors") {
