@@ -6,8 +6,8 @@ function playerWin() {
     const count = document.querySelector("#playerWinsCount");
     
     count.textContent = `${parseInt(count.textContent) + 1}`;
-    playerSelector.style.color = "Green";
-    AISelector.style.color = "Red";
+    playerSelector.style.color = "rgb(0, 255, 0)";
+    AISelector.style.color = "rgb(255, 0, 0)";
 }
 
 function draw() {
@@ -16,8 +16,8 @@ function draw() {
     const count = document.querySelector("#drawsCount");
     
     count.textContent = `${parseInt(count.textContent) + 1}`;
-    playerSelector.style.color = "Yellow";
-    AISelector.style.color = "Yellow";
+    playerSelector.style.color = "rgb(255, 255, 0)";
+    AISelector.style.color = "rgb(255, 255, 0)";
 }
 
 function AIWin() {
@@ -26,8 +26,8 @@ function AIWin() {
     const count = document.querySelector("#AIWinsCount");
     
     count.textContent = `${parseInt(count.textContent) + 1}`;
-    playerSelector.style.color = "Red";
-    AISelector.style.color = "Green";
+    playerSelector.style.color = "rgb(255, 0, 0)";
+    AISelector.style.color = "rgb(0, 255, 0)";
 }
 
 function selectWinner() {
@@ -79,8 +79,17 @@ function disableButtons() {
     document.querySelector("#playerScissors").disabled = true;
 }
 
+function resetColours() {
+    const playerSelector = document.querySelector("#playerSelected");
+    const AISelector = document.querySelector("#AISelected");
+
+    playerSelector.style.color = "Black";
+    AISelector.style.color = "Black";
+}
+
 function choiceSelected(event) {
     disableButtons();
+    resetColours();
     const selected = document.querySelector(`#player${event.target.textContent}`);
     const selector = document.querySelector("#playerSelected");
     const AISelector = document.querySelector("#AISelected");
