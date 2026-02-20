@@ -1,18 +1,33 @@
 const choices = ["Rock", "Paper", "Scissors"];
 
 function playerWin() {
+    const playerSelector = document.querySelector("#playerSelected");
+    const AISelector = document.querySelector("#AISelected");
     const count = document.querySelector("#playerWinsCount");
+    
     count.textContent = `${parseInt(count.textContent) + 1}`;
+    playerSelector.style.color = "Green";
+    AISelector.style.color = "Red";
 }
 
 function draw() {
+    const playerSelector = document.querySelector("#playerSelected");
+    const AISelector = document.querySelector("#AISelected");
     const count = document.querySelector("#drawsCount");
+    
     count.textContent = `${parseInt(count.textContent) + 1}`;
+    playerSelector.style.color = "Yellow";
+    AISelector.style.color = "Yellow";
 }
 
 function AIWin() {
+    const playerSelector = document.querySelector("#playerSelected");
+    const AISelector = document.querySelector("#AISelected");
     const count = document.querySelector("#AIWinsCount");
+    
     count.textContent = `${parseInt(count.textContent) + 1}`;
+    playerSelector.style.color = "Red";
+    AISelector.style.color = "Green";
 }
 
 function selectWinner() {
