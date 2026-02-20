@@ -6,6 +6,7 @@ function gridBuilder() {
         const button = document.createElement("button");
         button.className = "gameButton";
         button.textContent = games[i];
+        button.style.backgroundImage = `url('./images/${games[i]}_logo.png')`;
         button.onclick = () => window.location.href = `./games/${games[i]}/index.html`;
         grid.appendChild(button);
     }
