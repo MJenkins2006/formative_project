@@ -111,12 +111,40 @@ function choiceSelected(event) {
     setTimeout(() => {enableButtons();}, 610);
 }
 
+async function loadSaveFile() {
+    const playerSelector = document.querySelector("#playerWinsCount");
+    const drawsSelector = document.querySelector("#drawsCount");
+    const AISelector = document.querySelector("#AIWinsCount");
+
+    const response = await fetch('./saveFile.json');
+    const data = await response.json();
+
+    playerSelector.textContent = data.playerWins;
+    drawsSelector.textContent = data.draws;
+    AISelector.textContent = data.AIWins;
+}
+
+async function saveSaveFile() {
+    const data = {
+        "playerWins": parseInt(document.querySelector('#playerWinsCount').textContent),
+        "draws": parseInt(document.querySelector('#drawsCount').textContent),
+        "AIWins": parseInt(document.querySelector('#AIWinsCount').textContent),
+    };
+    console.log(data);
+}
+
 function initialiseGame() {
+    loadSaveFile();
+
     const rockButton = document.querySelector("#playerRock");
     const paperButton = document.querySelector("#playerPaper");
     const scissorsButton = document.querySelector("#playerScissors");
 
+    const saveButton = document.querySelector("#saveGame");
+
     rockButton.addEventListener("click", choiceSelected);
     paperButton.addEventListener("click", choiceSelected);
     scissorsButton.addEventListener("click", choiceSelected);
+
+    saveButton.addEventListener("click", saveSaveFile)
 }
